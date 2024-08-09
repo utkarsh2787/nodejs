@@ -12,7 +12,7 @@ var p = 11
 // bigint
 // symbol ->unique
 // null is value
-// undefined is type
+// undefined is type(all stored in stack)
 y = 11
 y = 12
 x = 13
@@ -41,3 +41,37 @@ console.log(isNaN("jfdki"))
 
 // == (value comparision, === value with type comsparision)
 
+
+// added n to end to covert to bigint
+let bignumber = 99999999999999999999999999999999999n
+console.log(typeof(bignumber))
+console.log(bignumber)
+
+
+//objects data type (arrays, objecys, functions (Non Primitive data types), stored in heap) like below q is stiored in stack and it has refernce ot object it has in heap
+let bb = [1,2,4]
+bb.push("war")
+console.log(bb, bb[0])
+
+console.log(typeof(bb))
+
+let q = {
+    name: "name",
+    age: 12
+}
+console.log(typeof(q))
+console.log(q)
+
+
+// fucntion type
+let finc = function(){
+    console.log("fucntion called")
+}
+// or
+
+function op(){
+    console.log("fucntion2 called")
+}
+op()
+finc()
+console.log(typeof(op), typeof(finc))
