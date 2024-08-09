@@ -18,9 +18,9 @@ y = 12
 x = 13
 
 
-console.table([abc,x,y])
-console.log(typeof x)
-console.log(typeof(null))
+// console.table([abc,x,y])
+// console.log(typeof x)
+// console.log(typeof(null))
 
 // type casting
 let str = String(x)
@@ -37,6 +37,7 @@ console.log(++x)
 
 // NaN is Not a Number and prevent comparision with null andn undefined
 console.log(isNaN("jfdki"))
+
 
 // == (value comparision, === value with type comsparision)
 
