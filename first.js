@@ -398,7 +398,11 @@ call stakc [golbal, a,b,c](LIFO)
 
 // arr.forEach(op)
 
+// filter  rreturn elemets which satisfies condition
 
+// let arr = [1,2,44,5,6]
+// let a = arr.filter((num)=>num>3)
+// console.log(a)
 // //map
 // let arr = [1,2,45,6,7,7,8]
 // let prr = arr.map((a)=>(a+1))
@@ -412,5 +416,413 @@ call stakc [golbal, a,b,c](LIFO)
 // console.log(x)
 
 // DOM
+// classic for loop works in all for(let a = 0; ....)
+//selects first h1
+// console.log(document.querySelector("h1"))
 
-console.log(document.querySelector("h1"))
+// //selects all h1 in nodelist (it doesnot have map, no for loop , but has for each)
+// console.log(document.querySelectorAll("h1"))
+
+// // select by if and class
+// document.getElementById("id")
+
+// // return htmlcollection , nor array and nodelist, it doesnot have foreach too, convert into arrAY  using Array.from()
+// document.getElementsByClassName("class name")
+
+// // change text
+// let abc = document.querySelector("h1")
+// abc.style.backgroundColor = "green"
+// abc.innerHTML = "<h1>......" // have inner tags too
+// abc.textContent = "kdnks"   // conetxt inside text even the hidden one
+// abc.innerText = "........." // only whats shown on page content
+
+
+// //create new element in document
+
+
+// // return htmlcollection of all child tags
+// abc.children
+
+
+// async js
+
+// js by default is sync, single threaded
+// js engine is made of cal stack, memory heap
+// set timeout , set interval and fetcjh()
+// timeout , execute xyz after n sec, registers it, added to queue and than at it time is added tback to call stack
+// gfetch() same, just its queue is higher prioriity
+
+
+// promises
+
+// creating promise
+// let p1 = new Promise(function(resolve, reject){
+//     // resolve what to do if succeeful
+//     // what to do if reject
+//     // do async task
+//     setTimeout(function(){
+//         console.log(1000)
+//         resolve() // resolve connects promise to .then
+//         console.log("op")
+//     }, 1000)
+
+// })
+
+// //consuming promise
+// p1.then(function(){
+//     console.log("consumed")
+// })
+ 
+// if error 404 etc etc , its in resolve itself, not in reject, reject only if its not able to request
+// let p3 = new Promise(function(resolve, reject){
+//     // resolve what to do if succeeful
+//     // what to do if reject
+//     // do async task
+//     setTimeout(function(){
+//         console.log(1000)
+//         resolve({username: "user", age:10, height: 109}) // resolve connects promise to .then and pass para ot then
+//     }, 1000)
+
+// })
+// p3.then(function(user){
+//     console.log(user)
+// })
+
+// let p4 = new Promise(function(resolve, reject){
+//     setTimeout(function(){
+//         let error = false
+//         if(!error){
+//         resolve({username: "user", age:10, height: 109}) 
+//         }
+//         else{
+//             reject("error something happened")
+//         }
+//     }, 1000)
+
+// })
+
+// // checks username being transferred
+// p4.then(function(user){
+//     return user.username
+// }).then(function(username){
+//     console.log(username)
+// }).catch(function(er){
+//     console.log(er)
+
+// })
+
+
+// let p5 = new Promise(function(resolve, reject){
+//     setTimeout(function(){
+//         let error = true
+//         if(!error){
+//         resolve({username: "user", age:10, height: 109}) 
+//         }
+//         else{
+//             reject("error something happened")
+//         }
+//     }, 1000)
+
+// })
+
+// // without using .then using async fucntuion 
+// async function af() {
+//     try {
+//         // waits for rewspos sefrom p5
+//     let resp = await(p5)
+//     console.log(resp)
+//     } catch (error) {
+//         console.log(error)
+        
+//     }
+
+// }
+// af()
+
+
+// using fetch , it returns a promsie
+
+// fetch("https://api.github.com/ushiteshchoudhary").then(function(response){
+//     if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return response.json();
+
+// }).then((data)=>{
+//     console.log(data)
+// }).catch((err)=>{
+//     console.log("error")
+// })
+
+// // using asyn
+
+// async function af2() {
+   
+//     try {
+//         let resp = await(fetch("https://api.github.com/users/hiteshchoudhary"))
+//         let data = await(resp.json()) // wait for it convert to jsaon as well as it takes time
+//         console.log(data)
+//     } catch (error) {
+//         console.log("error")
+//     }
+// }
+
+// af2()
+
+// fetch has priority queue so it will be fulfilled before otehr promises etc etc, so its executed befiore them if tuimeout is same
+// fetch 2 things, one to network to fetch data (rejection or rsolve) and other to reserve data space for the data cimng from rejectiona and resolfvw
+
+// constructor
+
+// function abc(x){
+//     this.x = x
+//     return this // no need to implicitley call
+// }
+
+// let a = abc(1)
+// let a2 = abc(2)
+// // onsole.log(a)// print(this.x = 2) not greated seprate instance
+
+// let a3 = new abc(2)
+// let a4 = new abc(4)
+// // a3 and a4 difff insance a3 = 3, a4 = 4 , when new is called , empty object is called , paasses values, addds this, 
+
+// console.log(a3.constructor)  // refernce to itself
+// console.log(a.constructor)   // refernce to object 
+
+
+// protoype is main thing for new, this etc etc
+// in js everything is object (functions, arrays all)
+
+// function abc(x){
+//     return a*4
+// }
+
+// abc.power = 2
+// console.log(abc.power)
+// console.log(abc.prototype)  // object
+
+// function xyz(a,b){
+//     this.a = a
+//     this.b = b
+// }
+// xyz.prototype.addd = function(){
+//     this.a++
+// }
+// console.log(xyz.prototype)
+
+// let h = new xyz(10,1) // new is keyworkd that tells that these new functions methods ahve been added
+// let k = new xyz(18, 3) // new is keyworkd that tells that these new functions methods ahve been added
+// console.log(typeof(xyz(10,2)), typeof(new xyz(1,1)))  // when new caleed it creates seprate object , in normal func it calls global ovbject (undefied in node and windows in browser)
+
+// h.addd()
+// console.log(h)
+// // new acts like constructor function, prototype is linked to new
+
+// let ar = [1,24,56]
+// let ob = {
+//     a:10
+// }
+// Object.prototype.pp = function(){
+//     console.log(10)
+// }
+// console.log(Object.prototype)
+// console.log(Object.prototype.prototype) // undefined
+
+// ar.pp()
+
+
+// //inherritance (__proto__ to get prototype)
+// let a = {
+//     x:10
+// }
+// let b = {
+//     y:100
+// }
+
+// let c = {
+//     __proto__: b // inhertics b
+// }
+// console.log(c.y)
+// c.__proto__  = a
+// console.log(c.x)
+// console.log(c.prototype) // error it works on class not instance
+// console.log(typeof(c))
+// // modern suyntax
+
+// Object.setPrototypeOf(c, b)
+// console.log(c.x, c.y)
+// console.log(String.prototype)
+
+
+// for functio execution isnide fucntion 
+
+// function abc(a){ // it is called 
+   
+//     this.a = a 
+// }
+// function xyz(a,b){
+//     this.b = b
+//     abc(a)// this.a to different execution context of function a
+// }
+
+// let t = new xyz(10,1)
+// console.log(t)
+
+// function abc(a){ // it is called 
+   
+//     this.a = a  
+// }
+// function xyz(a,b){
+//     this.b = b
+//     abc.call(this, a) // execution context given to abc to save this to (this context)
+// }
+
+// let t = new xyz(10,1)
+// console.log(t)
+
+// // class
+// class abc{
+//     constructor(a,b,c){ // constructor
+//         this.a=a
+//         this.b = b
+//         this.c = c
+//     }
+
+//     op(){ // method
+//         return this.a 
+//     }
+// }
+// let chai = new abc(1,1,1)
+// console.log(chai.op())
+
+
+// function bc(){
+//     console.log(1)
+// }
+// bc.op = function(){
+//     console.log(94)
+// }
+// bc.op() 
+// bc.prototype.op = function(){
+//     console.log(94)
+// }
+
+// let r = new bc()
+// r.op()
+
+// // when using new and objects add tp prototype, else add FileSystemDirectoryHandle, .prototyp
+// // inhertance in classes
+
+// class xyz extends abc{
+//     r(){
+//         console.log(29)
+//     }
+// }
+
+// let yy = new xyz(1,2,3)
+// console.log(yy.op())
+
+// class ii extends abc{
+//     constructor(o,l){
+//         super(o)
+//         this.l = l
+//     }
+//     static gg(){
+//         console.log(103)
+//     }
+// }
+// let you = new ii(108,39)
+// console.log(you.op())
+
+// // console.log(you.gg()) // error as its static
+// ii.gg() // works as static is accessibe for class
+
+
+// console.log(Object.getOwnPropertyDescriptor(Math, "PI")) // configuration of PI , value, writtable etc etc
+
+// a = {
+//     i:10,
+//     j:12
+// }
+// console.log(Object.getOwnPropertyDescriptor(a,'i')) // in this we have wirtable etc et c=truewe are owner  we can change it
+
+// Object.defineProperty(a, 'i', {
+// 'writable':false
+// })
+// a.i = 109
+// console.log(a.i) // 10
+
+// getter and setter
+
+// class abc{
+//     constructor(a,b,c){
+//         this.a = a
+//         this.b = b
+//         this.c = c
+//     }
+//     get a(){
+//         return this._a // _.. is private property
+//     }
+//     set a(p){
+//         // called whan this.a = a is called in constructor
+//         this._a = p+1 // set as different variable as const and set both will try to fix this.a causing error, now only this will set _a
+//     }
+// }
+// let y =new abc(1,2,3)
+// console.log(typeof(y), typeof(abc))
+// console.log(y.a)
+// console.log(y)
+
+// older syntax and similary in objcts too
+
+// function xyz(a,b){
+//     this.a = a
+//     this.b = b
+
+//     Object.defineProperty(this, a, {
+//         get:function(){return this.a},
+//         set: function(value){
+//             this.a = value
+//         }
+//     })
+// }
+
+// let y = new xyz(1,2)
+// console.log(y)
+// a = {
+//     _l:10, // private
+//     get l(){
+//         return this._l+1
+//     },
+//     set l(v){
+//         this._l = v
+//     }
+// }
+
+// let m = Object.create(a)
+// m.l = 19
+// console.log(m.l)
+
+// lexical scopping and closure
+// function makeFunc() {
+//         const name = "Mozilla";
+//         function displayName() {
+//             console.log(name);
+//         }
+//         return displayName;
+//     }
+
+// const myFunc = makeFunc(); // in this whole scope of parent fucntion is also passed on
+// myFunc();
+
+// function clickHandler(color){
+//     // document.body.style.backgroundColor = `${color}`
+
+//     return function(){
+//         document.body.style.backgroundColor = `${color}`
+//     }
+// }
+// // real world example of closure
+// document.getElementById('orange').onclick = clickHandler("orange")
+// document.getElementById('green').onclick = clickHandler("green")

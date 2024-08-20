@@ -2,30 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
-    <title>DOM learning</title>
-    <style>
-        .bg-black{
-            background-color: #212121;
-            color: #fff;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body class="bg-black">
-    <div >
-        <h1  id="title" class="heading">DOM learning on Chai aur code </h1>
-        <h2>Lorem ipsum dolor sit.</h2>
-        <h2>Lorem ipsum dolor sit.</h2>
-        <h2>Lorem ipsum dolor sit.</h2>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <input type="password" name="" id="">
-
-        <ul>
-            <li class="list-item">one</li>
-            <li class="list-item">two</li>
-            <li class="list-item">three</li>
-            <li class="list-item">four</li>
+<body style="background-color: black;color: aliceblue;">
+    <div class="parent">
+        <div class="monday">monday</div>
+        <div class="tuesday">tuesday</div>
+        <div class="wednesday">wednesday</div>
+        <div class="thursday">
+            <div>Thursday</div>
+        </div>
+        <div class="friday">friday</div>
+        <p> The is para</p>
+        <ul class="list">
+            <li> op</li>
         </ul>
     </div>
+    <form class="frm">
+        <p>form</p>
+        <input type="text" class="tct">
+        <input type ="submit" class="sbt">
+    </form>
+    
 </body>
+<script>
+    let cons = document.querySelector(".parent")
+    // console.log(cons)
+
+    // // cons. childer returs html collection
+    // console.log(cons.children)
+    // cons.children[2].style.color = "blue"
+    // // for first and  last child
+    // console.log(cons.firstElementChild, cons.lastElementChild)
+
+    // let x = cons.children[2]
+    // console.log(x.parentElement)
+    // // next elelemt of it , with sam eparent
+    // console.log(x.nextElementSibling)
+    // console.log(x.previousElementSibling)
+    // console.log(cons.lastElementChild.nextElementSibling)
+
+    // // child nodes (nodes div, text, comments in it all the nodes etc etc as final nod eis of text ebven its emopty)
+    // console.log(cons.childNodes)
+
+    // making elements
+    let abc = document.createElement("div")
+    // console.log(abc)
+    abc.className = 'classss'
+    abc.id = "abc1"
+    //custom attributes
+    abc.setAttribute('custom', 'abch')
+
+    abc.innerText = "i am the best"
+    
+    // or 
+
+    let tnode = document.createTextNode("i am the best")
+    abc.appendChild(tnode)
+    document.body.appendChild(abc)
+
+    // add eleemts in ul
+
+    function fun(x){
+        let itwm = document.createElement("li")
+        let txt = document.createTextNode(x)
+        itwm.appendChild(txt)
+        document.getElementsByClassName('list')[0].appendChild(itwm)
+        
+
+    }
+    fun("list 2")
+    fun("list2")
+    fun("lis32")
+
+    // edits elemets
+    let xyz = document.querySelector('li:nth-child(2)')
+    // console.log(xyz)
+    xyz.innerHTML = "op"
+
+    // delete
+    xyz = document.querySelector('li:nth-child(3)')
+    xyz.remove()
+
+    // or
+    let g = document.querySelector('.list').children[1]
+    // console.log(g)
+    g.remove()
+    let a = document.querySelector('.tct')
+    let s = document.querySelector('.sbt')
+    s.addEventListener('click', function(e){
+        e.preventDefault()
+        console.log(e)
+        console.log(a.value)
+        a.value = ""
+    }, false)
+
+
+    
+
+
+
+
+
+   
+
+
+</script>
 </html>

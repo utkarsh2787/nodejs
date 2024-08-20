@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // set timeout, etc etc are fucntion of brwoser not in core js
+
+    // no need to execute
+    const c = setTimeout(function(){
+                console.log("timeout out")  // pritn after 2 sec
+                document.querySelector('h1').innerHTML = "Usib is the best"
+            }, 2000)
+
+    document.querySelector('button').addEventListener('click',function(){
+        clearTimeout(c)  // stops all timeout events
+        console.log(10)
+    })
+    
+
+</script>
+</html>
